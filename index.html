@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML >
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8">
+  <title>НГУ
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="script.js"></script>
+<script type="text/javascript" src="src/jscolor.js"></script>
+<script type="text/javascript" src="src/jquery.js"></script>
+<script type="text/javascript" src="src/paint.js"></script>
+<script>
+$(function() {
+  $(document).on("input", ".mat_count input", function() {
+      var count = $('[id^="count"]').val(0),
+          len = count.length;
+      $(".mat_count input").each(function(i, el) {
+          i %= len;
+          count[i].value -= -(+el.value || 0)
+      })
+  })
+});
+</script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="header1"><img src="images/mintsifryi-rossii-logogray.png"
+      width="300" height="90"></div>
+
+    <div id="header2"><img src="images/НГУ.png"
+      width="300" height="91"></div>
+
+      <h2 align="center">Программный комплекс выполнения лабораторных работ ГГФ НГУ</h2><br>
+      <h3 align="left">Количественный микроскопический анализ литаренитов</h3>
+      <div class="add-column">
+
+        <!-- button id="addColumn" onClick="CreateElement()" type="button" class="button add-col" -->
+        <button id="add-column" type="button" class="button add-col" style="margin:2px;">
+          <!-- p style="color: white;font-size:20px;" -->
+          Добавить элемент
+          <!-- /p -->
+        </button>
+      </div>
+      <table class="table">
+        <tr>
+          <td class="mat_count"><input type="text" id="1_mat_1" name="column_1" value="Цемент" readonly /></td>
+          <td class="mat_count"><input id="1_mat_2" name="column_2" style="display: none;"><select ><option>Монокристаллический кварц</option><option>Поликристаллический кварц</option><option>Полевые шпаты</option><option>Слюда</option><option>Обломки пород</option><option></option></select></td>
+          <td class="mat_count"><input id="1_mat_3" name="column_3" style="display: none;"><select id="1_mat_3" name="column_3"><option>Монокристаллический кварц</option><option>Поликристаллический кварц</option><option>Полевые шпаты</option><option>Слюда</option><option>Обломки пород</option><option></option></select></td>
+          <td class="mat_count"><input id="1_mat_4" name="column_4" style="display: none;"><select id="1_mat_4" name="column_4"><option>Монокристаллический кварц</option><option>Поликристаллический кварц</option><option>Полевые шпаты</option><option>Слюда</option><option>Обломки пород</option><option></option></select></td>
+        </tr>
+        <tr>
+          <td class="mat_count"><input type="text" id="2_mat_1" name="column_1"/></td>
+          <td class="mat_count"><input type="text" id="2_mat_2" name="column_2"/></td>
+          <td class="mat_count"><input type="text" id="2_mat_3" name="column_3"/></td>
+          <td class="mat_count"><input type="text" id="2_mat_4" name="column_4"/></td>
+        </tr>
+        <tr>
+          <td class="mat_count"><input type="text" id="3_mat_1" name="column_1"/></td>
+          <td class="mat_count"><input type="text" id="3_mat_2" name="column_2"/></td>
+          <td class="mat_count"><input type="text" id="3_mat_3" name="column_3"/></td>
+          <td class="mat_count"><input type="text" id="3_mat_4" name="column_4"/></td>
+        </tr>
+        <tr>
+          <td class="mat_count"><input type="text" id="4_mat_1" name="column_1"/></td>
+          <td class="mat_count"><input type="text" id="4_mat_2" name="column_2"/></td>
+          <td class="mat_count"><input type="text" id="4_mat_3" name="column_3"/></td>
+          <td class="mat_count"><input type="text" id="4_mat_4" name="column_4"/></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="count_1" name="column_1"></td>
+          <td><input type="text" id="count_2" name="column_2"></td>
+          <td><input type="text" id="count_3" name="column_3"></td>
+          <td><input type="text" id="count_4" name="column_4"></td>
+        </tr>
+      </table>
+      <!-- div class="addLine" -->
+      <div class="add-row">
+        <!-- button id="addLine" onClick="CreateForm()" -->
+        <button id="add-row" class="button">
+          <!-- p style="color: white; font-size:20px;" -->
+          Добавить значение
+          <!-- /p -->
+        </button>
+      </div>
+      <input type="button" value="Суммировать" onclick="sum(),sum_without(),vivod()">
+      <h2>Сумма всех элементов - <div id="total"></div> </h2>
+      <h2>Сумма всех элементов без цемента- <div id="total_without"></div> </h2>
+      <h2><div id="viv"></div> </h2>
+      <h1>Графический редактор для построения диаграммы:</h1>
+      <div class="container">
+  <canvas id='canvas' width="800" height="800">Ваш браузер устарел!</canvas>
+  <div id="palette"></div>
+  <div id="clear">Очистить изображение</div>
+</div>
+ </body>
+</html>
