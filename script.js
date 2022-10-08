@@ -105,15 +105,28 @@ window.addEventListener("load", function onWindowLoad() {
 
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
+  
+  
+    context.lineWidth = 3;
+    context.moveTo(100,600);
+    context.lineTo(400, 100);
+    context.lineTo(700, 600);
+    context.lineTo(100, 600);
+    context.stroke();
 
     // переменные для рисования
     context.lineCap = "round";
-    context.lineWidth = 8;
+
 
     // вешаем обработчики на кнопки
     // очистка изображения
     document.getElementById("clear").onclick = function clear() {
       context.clearRect(0, 0, canvas.width, canvas.height);
+      context.moveTo(100,600);
+      context.lineTo(400, 100);
+      context.lineTo(700, 600);
+      context.lineTo(100, 600);
+      context.stroke();
     };
 
     // На любое движение мыши по canvas будет выполнятся эта функция
